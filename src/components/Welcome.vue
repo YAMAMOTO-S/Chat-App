@@ -6,7 +6,8 @@
         <form @submit.prevent="enterChat">
           <label for="name">Enter Your name:</label>
           <input type="text" name="name" v-model="name">
-          <button class="btn  orange lighten-2">Enter</button>
+          <p v-if="feedback" class="red-text">{{ feedback }}</p>
+          <button class="btn  orange lighten-3">Enter</button>
         </form>
       </div>
     </div>
@@ -19,6 +20,16 @@ export default {
   data () {
     return {
       name: null,
+      feedback: null
+    }
+  },
+  methods:{
+    enterChat(){
+      if(this.name){
+        this.$router.push({ name: 'Chat', params: { name: this.name }})
+      }else{
+        this.feedback = 'You must enter a name to join.'
+      }
     }
   }
 }
@@ -29,5 +40,14 @@ export default {
 .welcome h3{
   color: #F99273
 }
-
+.welcome{
+  max-width: 600px;
+  margin-top: 100px;
+}
+.welcome button{
+  margin: 30px auto;
+}
+.welcome form{
+  padding: 30px;
+}
 </style>
