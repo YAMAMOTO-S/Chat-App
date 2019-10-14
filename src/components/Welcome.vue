@@ -2,7 +2,7 @@
   <div class="welcome container">
     <div class="card">
       <div class="card-content center-align">
-        <h3>Welcome</h3>
+        <h3>Welcome <i class="material-icons">wc</i> </h3>
         <form @submit.prevent="enterChat">
           <label for="name">Enter Your name:</label>
           <input type="text" name="name" v-model="name">
