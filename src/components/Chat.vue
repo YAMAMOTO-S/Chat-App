@@ -6,7 +6,7 @@
 
       <div class="card">
          <div class="card-content">
-            <ul class="messages">
+            <ul class="messages" v-chat-scroll>
                <li v-for="message in messages" :key="message.id">
                   <span class="m-name">{{ message.name }}:</span>
                   <span class="m-message">{{ message.content }}</span>
@@ -94,5 +94,19 @@ export default {
 .chat span{
    padding-left: 10px;
 }
-
+.messages{
+   max-height: 300px;
+   overflow: auto;
+}
+.messages::-webkit-scrollbar {
+  width: 3px;
+}
+ 
+.messages::-webkit-scrollbar-track {
+  background: #ddd;
+}
+ 
+.messages::-webkit-scrollbar-thumb {
+  background: #aaa; 
+}
 </style>
